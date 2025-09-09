@@ -1,5 +1,6 @@
 #include "p1.h"
 #include "p2.h"
+#include "p3.h"
 #include "p4.h"
 
 using namespace std;
@@ -60,9 +61,18 @@ int main(){
                 break;
             }
             case 3: {
-                option = -1;
-                break;
-            }
+                string t1 = getString(transmissions[0]);
+                string t2 = getString(transmissions[1]);
+
+                auto ans = lcs_positions(t1, t2);
+                    cout << "Substring comun mas largo en "
+                         << transmissions[0] << ": "
+                         << ans.first << " " << ans.second << endl;
+                
+                 option = -1;
+                    break;
+                }
+
             case 4: {
                 for (const string& transmission : transmissions) {
                     analizarConHuffman(transmission, mcodes);
